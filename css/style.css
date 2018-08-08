@@ -1,5 +1,18 @@
 * {
-    color: red;
-    background:grey;
-    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: slategray;
+}
+
+body {
+    background-color: white;
+}
+header {
+    border: 3px;
+    border-style: double;
+}
+header h1 {font-size: 100px; font-style: bold;}
+header h2 {font-size: 50px; font-style: italic;}
+
+img {height: 25%;
+    float:right;
 }

@@ -42,7 +42,7 @@ if (answerThree === 'y' || answerThree === 'yes') {
     correctQuestions ++;
     console.log('the user was asked about how long I have been married and answered ' + answerThree + '. They now have ' + correctQuestions + ' correct');
     } else {
-        alert('You missed that one, ' + userName + '. I have been married for 30 years, but it feels like I got married yesterday');
+        alert('You missed that one, ' + userName + '. I have been married for 30 years, but it feels like I got married yesterday.');
         console.log('the user was asked about how long I have been married and answered ' + answerThree + '. They now have ' + correctQuestions + ' questions correct');
     }
 
@@ -66,7 +66,7 @@ if (answerFive === 'y' || answerFive === 'yes') {
     correctQuestions ++;
     console.log('the user was asked about My trip to China and answered ' + answerFive + '. They now have ' + correctQuestions + ' correct');
     } else {
-        alert('You missed that one, ' + userName + '. I have been married for 30 years, but it feels like I got married yesterday');
+        alert('You missed that one, ' + userName + '. I did go to China for Chirstmas in 2016.  I even got to walk on the Great Wall!');
         console.log('the user was asked about My trip to China and answered ' + answerFive + '. They now have ' + correctQuestions + ' questions correct');
     }
 

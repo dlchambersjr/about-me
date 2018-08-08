@@ -47,10 +47,10 @@ if (answerThree === 'y' || answerThree === 'yes') {
     }
 
 // Question #4
-var answerFour = prompt('Almost done.  Here is Question #4, ' + userName + ': Do I have four children').toLowerCase();
+var answerFour = prompt('Almost done.  Here is Question #4, ' + userName + ': Do I have four children?').toLowerCase();
 
 if (answerFour === 'n' || answerFour === 'no') {
-    alert('Can\'t fool you, ' + userName +'!  You got it correct!  I have three children, but the do not live at home anymore.  They are all \"Adulting\" on their own now.');
+    alert('Can\'t fool you, ' + userName +'!  You got it correct!  I have three children, but they do not live at home anymore.  They are all \"Adulting\" on their own now.');
     correctQuestions ++;
     console.log('user was asked about my children and respnded with ' + answerFour + '. They currently have ' + correctQuestions + 'questions correct.');
     } else {

@@ -1,19 +1,28 @@
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+   }
+
+html {
     background-color: slategray;
 }
 
 body {
     width: 960px;
     background-color: white;
+    margin:auto;
+    margin-top:50px;
 }
+
+img {height: 200px;
+    float:right
+    max-resolution: 10px;
+}
+
 header {
     border: 3px;
     border-style: double;
 }
+
 header h1 {font-size: 100px; font-style: bold;}
 header h2 {font-size: 50px; font-style: italic;}
 
-img {height: 200px;
-    float:right;
-}

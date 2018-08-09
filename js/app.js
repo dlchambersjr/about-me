@@ -52,6 +52,32 @@ function questionThree(){
   }
 }
 
+function questionFour() {
+  var answerFour = prompt('Almost done.  Here is Question #4, ' + userName + ': Do I have four children?').toLowerCase();
+
+  if (answerFour === 'n' || answerFour === 'no') {
+    alert('Can\'t fool you, ' + userName +'!  You got it correct!  I have three children, but they do not live at home anymore.  They are all "Adulting" on their own now.');
+    correctQuestions ++;
+    console.log('user was asked about my children and respnded with ' + answerFour + '. They currently have ' + correctQuestions + 'questions correct.');
+  } else {
+    alert('Oops, you missed it ' + userName + '... I only have three children.  They are all grown-up and living out of the house.');
+    console.log('user was asked about my children and respnded with ' + answerFour + '. They currently have ' + correctQuestions + ' questions correct.');
+  }
+}
+
+function questionFive() {
+  var answerFive = prompt('Last one!  Question #5: Did I spend Christmas 2016 in China?').toLowerCase();
+
+  if (answerFive === 'y' || answerFive === 'yes') {
+    alert('Wow!  Great answer, ' + userName + '! I took my wife and daughter to China for three weeks in 2016.  I can\'t wait to go back!');
+    correctQuestions ++;
+    console.log('the user was asked about My trip to China and answered ' + answerFive + '. They now have ' + correctQuestions + ' correct');
+  } else {
+    alert('You missed that one, ' + userName + '. I did go to China for Chirstmas in 2016.  I even got to walk on the Great Wall!');
+    console.log('the user was asked about My trip to China and answered ' + answerFive + '. They now have ' + correctQuestions + ' questions correct');
+  }
+}
+
 // Question #1
 questionOne();
 
@@ -62,31 +88,12 @@ questionTwo();
 questionThree();
 
 // Question #4
-var answerFour = prompt('Almost done.  Here is Question #4, ' + userName + ': Do I have four children?').toLowerCase();
-
-if (answerFour === 'n' || answerFour === 'no') {
-  alert('Can\'t fool you, ' + userName +'!  You got it correct!  I have three children, but they do not live at home anymore.  They are all "Adulting" on their own now.');
-  correctQuestions ++;
-  console.log('user was asked about my children and respnded with ' + answerFour + '. They currently have ' + correctQuestions + 'questions correct.');
-} else {
-  alert('Oops, you missed it ' + userName + '... I only have three children.  They are all grown-up and living out of the house.');
-  console.log('user was asked about my children and respnded with ' + answerFour + '. They currently have ' + correctQuestions + ' questions correct.');
-}
+questionFour();
 
 // Questions #5
-var answerFive = prompt('Last one!  Question #5: Did I spend Christmas 2016 in China?').toLowerCase();
+questionFive();
 
-if (answerFive === 'y' || answerFive === 'yes') {
-  alert('Wow!  Great answer, ' + userName + '! I took my wife and daughter to China for three weeks in 2016.  I can\'t wait to go back!');
-  correctQuestions ++;
-  console.log('the user was asked about My trip to China and answered ' + answerFive + '. They now have ' + correctQuestions + ' correct');
-} else {
-  alert('You missed that one, ' + userName + '. I did go to China for Chirstmas in 2016.  I even got to walk on the Great Wall!');
-  console.log('the user was asked about My trip to China and answered ' + answerFive + '. They now have ' + correctQuestions + ' questions correct');
-}
 
-// Show the user the results of the quiz
-alert('Thanks for taking the quiz, ' + userName + '!  You got ' + correctQuestions + ' out of 5 questions correct. Do you want to play another game?');
 
 // Lab-03 WORK:  Add question six to ask user to guess a number.  Give them exactly four tries to guess.
 alert(userName + ', let\'s play a guessing game.  Click OK when you are ready.');
@@ -146,3 +153,7 @@ if (fruitList.length === 5) {
 } else {
   alert(userName + ', you identified ' + matchedFruit + ' in my kitchen.\n\nYou could have also guessed: ' + fruitList +'\n\nTHANKS FOR PLAYING!');
 }
+
+
+// Show the user the results of the quiz
+alert('Thanks for taking the quiz, ' + userName + '!  You got ' + correctQuestions + ' out of 5 questions correct. Do you want to play another game?');

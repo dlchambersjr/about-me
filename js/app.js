@@ -74,31 +74,77 @@ console.log('User was asked their name and they responded: ' + userName);
 // alert('Thanks for taking the quiz, ' + userName + '!  You got ' + correctQuestions + ' out of 5 questions correct. Please enjoy the page now.');
 
 // Lab-03 WORK:  Add question six to ask user to guess a number.  Give them exactly four tries to guess.
-alert(userName + ', let\'s play a guessing game.  Click OK when you are ready.');
+// alert(userName + ', let\'s play a guessing game.  Click OK when you are ready.');
 
-var guess = 1, actualMiles = 280;
+// var guess = 1, actualMiles = 280;
 
-while (guess <= 4) {
-  var miles = parseFloat(prompt('GUESS #' + guess + '\n\n' + userName + ' can you tell me how the number of miles I drove my car last week?'));
-  console.log ('miles is', miles);
-  while (isNaN(miles)) {
-    miles = parseFloat(prompt(userName + ', please enter a number. Please try GUESS #' + guess + ' again. \n\nCan you tell me the number of miles I drove my car last week?'));
+// while (guess <= 4) {
+//   var miles = parseFloat(prompt('GUESS #' + guess + '\n\n' + userName + ' can you tell me how the number of miles I drove my car last week?'));
+//   console.log ('miles is', miles);
+//   while (isNaN(miles)) {
+//     miles = parseFloat(prompt(userName + ', you need to enter a number. Please try GUESS #' + guess + ' again. \n\nCan you tell me the number of miles I drove my car last week?'));
+//   }
+//   console.log ('guess #', guess);
+//   if (miles === actualMiles) {
+//     alert('Congratulations ' + userName + '! \n\nYou got it right!');
+//     console.log ('user guessed ' + miles + 'break the cycle... guess is now ' + guess);
+//     break;
+//   }
+//   console.log('guess before missed = ' + guess);
+//   if (miles < actualMiles) {
+//     alert('I\'m sorry, ' + userName + ', your guess is too low.  Try again, please.');
+//     console.log('the user guessed ' + miles + ' and guess is at ' + guess);
+//   } else if (guess <= 4 && miles > actualMiles) {
+//     alert('I\'m sorry, ' + userName + ', your guess was to high.  Please try again.');
+//     console.log('the user guessed ' + miles);
+//   }
+//   if (guess === 4) {
+//     alert('I\'m sorry, ' + userName + ', unfortunately, that was your last guess.  The correct answer was ' + actualMiles +' miles');
+//   }
+//   guess ++;
+// }
+// lab-03 Work: Add question 7 to have user guess multiple items that are contained in the array
+
+// define my arrays
+var fruitList = ['dates','cherries','oranges','bananas','mangos'], fruitTracker = [], matchedFruit = [], missedFruit = [];
+
+alert(userName + ', I\'m really glad you like guessing games as much as I do! \n\nThis time you will get six attmpts to guess what types of fruit I have in my kitchen.  Click OK when you are ready.');
+
+// Establish the loop to let the user answer 6 times.
+for (var attempt = 1; attempt <= fruitList.length + 1; attempt ++) {
+  var fruitGuess = prompt('ATTEMPT #' + attempt + '\n\nGuess a fruit please, ' + userName + '.').toLowerCase(); //Get the guess
+  console.log ('attempt #', attempt);
+  console.log('Guessed fruit=', fruitGuess);
+  console.log('did the user match-',fruitList.includes(fruitGuess));
+  //
+  //check for null
+  //check for duplicate fruit
+  //
+  if (fruitList.includes(fruitGuess)) {
+    fruitTracker.push(fruitList.indexOf(fruitGuess));
+    alert('Good Job ' + userName + '!\n\n You have identified ' + fruitTracker.length + ' of the ' + fruitList.length + ' fruit in my ktichen.');
+    console.log('number of matched fruit=', fruitTracker.length);
+  } else {
+    alert('I do not have any ' + fruitGuess + ' in my kitchen, ' + userName +'\n\nYou have named ' + fruitTracker.length + ' of ' + fruitList.length +' fruit correctly.');
+    console.log('number of matched fruit=', fruitTracker.length);
   }
-  if (miles === actualMiles) {
-    alert('Congratulations ' + userName + '! \n\nYou got it right!');
-    console.log ('user guessed ' + miles + 'break the cycle... guess is now ' + guess);
+  if (fruitTracker.length === fruitList.length && attempt <= fruitList.length) {
+    alert ('You\'re AMAZING, ' + userName + '!\n\nYou guessed all the fruit before running out of guesses!\nClick OK to see your specific results.');
     break;
   }
-  console.log('guess before missed = ' + guess);
-  if (miles < actualMiles) {
-    alert('I\'m sorry, ' + userName + ', your guess is too low.  Try again, please.');
-    console.log('the user guessed ' + miles + ' and guess is at ' + guess);
-  } else if (guess <= 4 && miles > actualMiles) {
-    alert('I\'m sorry, ' + userName + ', your guess was to high.  Please try again.');
-    console.log('the user guessed ' + miles);
-  }
-  if (guess === 4) {
-    alert('I\'m sorry, ' + userName + ', unfortunately, that was your last guess.  The correct answer was ' + actualMiles +' miles');
-  }
-  guess ++;
 }
+//create result arrays
+for (var i = 0; i <= fruitTracker.length; i++) {
+  matchedFruit.push(fruitList[fruitTracker[i]]);
+}
+
+for (var x = 0; x <= fruitList.length; x++) {
+  if (fruitList[x] !== matchedFruit[x]){
+    missedFruit.push(fruitList[x]);
+  }
+}
+alert(userName + ', you identified ' + fruitTracker.length + ' of the ' + fruitList.length +' fruit in my kitchen.  It took you ' + attempt + ' attempts. Click OK to see which fruit you named.');
+alert(userName + ', you named the following fruit:\n' + matchedFruit.toString() +'\n\nYou missed:\n' + missedFruit.toString());
+// You guessed x out of 5 correct in x attempts
+// you named the following fruit:
+//you missed the following fruit - WHAT TO DO IF ALL named?

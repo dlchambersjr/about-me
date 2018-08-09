@@ -78,7 +78,7 @@ function questionFive() {
   }
 }
 
-function questionSix(userName) {
+function questionSix() {
   alert(userName + ', let\'s play a guessing game.  Click OK when you are ready.');
 
   var guess = 1, actualMiles = 280;
@@ -111,7 +111,7 @@ function questionSix(userName) {
   }
 }
 
-function questionSeven(userName) {
+function questionSeven() {
   var fruitList = ['dates','cherries','oranges','bananas','mangos'], fruitGuess, attempt = 6;
 
   alert(userName + ', I\'m really glad you like guessing games as much as I do! \n\nThis time you will get six attempts to guess a type of fruit I have in my kitchen.  Click OK when you are ready.');
@@ -141,33 +141,33 @@ function questionSeven(userName) {
 }
 
 // Question #1
-questionOne(userName);
+questionOne();
 
 // Question #2
-questionTwo(userName);
+questionTwo();
 
 // Question #3
-questionThree(userName);
+questionThree();
 
 // Question #4
-questionFour(userName);
+questionFour();
 
 // Questions #5
-questionFive(userName);
+questionFive();
 
 
 
 // Lab-03 WORK:
 
 // Question #6
-questionSix(userName);
+questionSix();
 
 // Question #7
 
 // define my array of fruits, the fruit guess, and set the number of attmepts
-questionSeven(userName);
+questionSeven();
 
 
 
 // Show the user the results of the quiz
-alert('Thanks for taking the quiz, ' + userName + '!  You got ' + correctQuestions + ' out of 5 questions correct. Do you want to play another game?');
+alert('Thanks for taking the quiz, ' + userName + '!  You got ' + correctQuestions + ' out of 7 questions correct. Do you want to play another game?');

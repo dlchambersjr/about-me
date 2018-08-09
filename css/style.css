@@ -23,7 +23,7 @@ header {
     border: 3px;
     border-style: double;
     padding-top: 10px;
-    background-color: darkcyan;
+    background-color: rgb(10, 190, 190);
 }
 
 header h1 {

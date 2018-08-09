@@ -1,2 +1,1 @@
-# about-me
-This is the results of my work on Lab-02 in Code 201
+# I guess it doesn't really matter, does it?

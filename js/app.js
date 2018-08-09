@@ -155,8 +155,6 @@ questionFour();
 // Questions #5
 questionFive();
 
-
-
 // Lab-03 WORK:
 
 // Question #6
@@ -166,8 +164,6 @@ questionSix();
 
 // define my array of fruits, the fruit guess, and set the number of attmepts
 questionSeven();
-
-
 
 // Show the user the results of the quiz
 alert('Thanks for taking the quiz, ' + userName + '!  You got ' + correctQuestions + ' out of 7 questions correct. Do you want to play another game?');

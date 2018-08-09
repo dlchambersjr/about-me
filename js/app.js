@@ -71,7 +71,7 @@ if (answerFive === 'y' || answerFive === 'yes') {
 }
 
 // Show the user the results of the quiz
-alert('Thanks for taking the quiz, ' + userName + '!  You got ' + correctQuestions + ' out of 5 questions correct. Please enjoy the page now.');
+alert('Thanks for taking the quiz, ' + userName + '!  You got ' + correctQuestions + ' out of 5 questions correct. Do you want to play another game?');
 
 // Lab-03 WORK:  Add question six to ask user to guess a number.  Give them exactly four tries to guess.
 alert(userName + ', let\'s play a guessing game.  Click OK when you are ready.');
@@ -105,53 +105,29 @@ while (guess <= 4) {
 }
 // lab-03 Work: Add question 7 to have user guess multiple items that are contained in the array
 
-// define my arrays
-var fruitList = ['dates','cherries','oranges','bananas','mangos'], fruitTracker = [], matchedFruit = [], missedFruit = [];
+// define my array of fruits, the fruit guess, and set the number of attmepts
+var fruitList = ['dates','cherries','oranges','bananas','mangos'], fruitGuess, attempt = 6;
 
-alert(userName + ', I\'m really glad you like guessing games as much as I do! \n\nThis time you will get six attempts to guess what types of fruit I have in my kitchen.  Click OK when you are ready.');
+alert(userName + ', I\'m really glad you like guessing games as much as I do! \n\nThis time you will get six attempts to guess a type of fruit I have in my kitchen.  Click OK when you are ready.');
 
-// establish the loop to let the user answer 6 times.
-for (var attempt = 1; attempt <= fruitList.length + 1; attempt ++) {
-  var fruitGuess = prompt('ATTEMPT #' + attempt + '\n\nGuess a fruit please, ' + userName + '.').toLowerCase(); // get the guess
-  // check for no input or repeat correct answer
-  while (fruitGuess === '' || fruitTracker.includes(fruitList.indexOf(fruitGuess))) {
-    console.log('user entered null or repeat');
-    fruitGuess = prompt(userName + ', You can not leave the answer blank or re-enter a fruit you have gotten correct. Please try again. \n\nPlease guess a fruit found in my kitchen.').toLowerCase();
-  }
-  // Console logs info
-  console.log ('attempt #', attempt);
+while (attempt !== 0) {
+  fruitGuess = prompt('You have ' + attempt + ' of 6 attempts remaining.\n\nGuess a fruit please, ' + userName + '.').toLowerCase(); // get the guess
+  console.log ('Remaining attempts #', attempt);
   console.log('Guessed fruit=', fruitGuess);
-  console.log('previous fruit',fruitTracker.includes(fruitList.indexOf(fruitGuess)));
   console.log('did the user match-',fruitList.includes(fruitGuess));
-  //check the answer
   if (fruitList.includes(fruitGuess)) {
-    fruitTracker.push(fruitList.indexOf(fruitGuess));
-    alert('Good Job ' + userName + '!\n\n You have identified ' + fruitTracker.length + ' of the ' + fruitList.length + ' fruit in my ktichen.');
-    console.log('number of matched fruit=', fruitTracker.length);
+    var matchedFruit = [fruitList.splice(fruitList.indexOf(fruitGuess),1)];
+    alert('Good Job ' + userName + '!\n\n You have figured out that I have ' + fruitGuess + ' in my kitchen.');
+    attempt = 0;
   } else {
-    alert('I do not have any ' + fruitGuess + ' in my kitchen, ' + userName +'\n\nYou have named ' + fruitTracker.length + ' of ' + fruitList.length +' fruit correctly.');
-    console.log('number of matched fruit=', fruitTracker.length);
-  }
-  if (fruitTracker.length === fruitList.length && attempt <= fruitList.length) {
-    alert ('You\'re AMAZING, ' + userName + '!\n\nYou guessed all the fruit before running out of guesses!\nClick OK to see your specific results.');
-    break;
-  } else if (attempt > fruitList.length) {
-    alert(userName + ', you used up your guesses.\nClick OK to see your specific results.');
-    break;
+    alert('I do not have any ' + fruitGuess + ' in my kitchen, ' + userName +'\n\nPlease try again');
+    attempt --;
   }
 }
-//create result arrays
-for (var i = 0; i <= fruitList.length; i++) {
-  if (fruitList[fruitTracker[i]] !== undefined && fruitList.includes(fruitList[fruitTracker[i]])){
-    matchedFruit.push(fruitList[fruitTracker[i]]);
-    console.log('i=',i,'matched: ',matchedFruit.toString());
-  } else {
-    missedFruit.push(fruitList[i]);
-    console.log('i=',i,'missed: ',missedFruit.toString());
-  }
-}
-console.log('matched: ',matchedFruit.toString());
-console.log('missed: ',missedFruit.toString());
 
 // present results to user.
-alert(userName + ', you identified ' + fruitTracker.length + ' of the ' + fruitList.length +' fruit in my kitchen.  It took you ' + attempt + ' attempts.\n\nYou named the following fruit: ' + matchedFruit.toString() +'\n\nYou missed: ' + missedFruit.toString() +'\n\nTHANKS FOR PLAYING!');
+if (fruitList.length === 5) {
+  alert(userName + ', you identified no fruit in my kitchen.\n\nYou could have guessed: ' + fruitList +'\n\nTHANKS FOR PLAYING!');
+} else {
+  alert(userName + ', you identified ' + matchedFruit + ' in my kitchen.\n\nYou could have also guessed: ' + fruitList +'\n\nTHANKS FOR PLAYING!');
+}

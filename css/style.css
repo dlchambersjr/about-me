@@ -2,16 +2,15 @@
     
    } */
 
-   html {
+html {
     background-color: slategray;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
     width: 960px;
     background-color: white;
     margin:auto;
-    margin-top:50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 img {
@@ -20,10 +19,15 @@ img {
 }
 
 header {
+    position: relative;
     border: 3px;
     border-style: double;
-    padding-top: 10px;
     background-color: rgb(10, 190, 190);
+    margin:100px 0px 20px 0px;
+    padding-top: 10px;
+    
+    
+   
 }
 
 header h1 {
@@ -36,7 +40,8 @@ header h2 {
     font-style: italic;
 }
 
-section h1{
+section h1 {
+    Margin-top:10px;
     font-size:50x;
     font-style:bold;
 }
@@ -46,11 +51,6 @@ ul {
     margin: 25px;
 }
 
-ul+li {
-  list-style: none;
-  font-style: bold;
-  margin:10px;
-}
 
 ol {
     list-style: decimal;
@@ -58,7 +58,7 @@ ol {
     Margin-top:10px;
 }
 
-ol+li {
+ol:first-child {
   list-style: none;
   font-style: bold;
   margin-left:100px;

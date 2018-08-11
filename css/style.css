@@ -19,7 +19,6 @@ img {
 }
 
 header {
-    position: relative;
     border: 3px;
     border-style: double;
     background-color: rgb(10, 190, 190);

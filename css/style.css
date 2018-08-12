@@ -15,8 +15,6 @@ header {
     border-style: solid;
     border-radius: 25px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);    background-color: #ff9600bf;
-    
-    
 }
 
 #headShot {
@@ -43,7 +41,7 @@ header h2 {
 }
 
 Section {
-    margin: 50px;
+    margin: 50px 50px 25px 50px;
     border: 1px;
     border-style:solid;
     border-radius: 25px;
@@ -86,4 +84,29 @@ ul li::first-line {
 ol {
     margin: 10px 10px 10px 25px;
     list-style: decimal;
+}
+footer {
+    margin-bottom: 25px;
+    border: 1px;
+    border-style: solid;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+    padding: 25px;
+    background-color: #ff9600bf;
+    align-content: center;
+}
+
+footer ul {
+    list-style: none;
+    font-size: small;
+    padding: 0px 30px 10px 70px;
+    margin: 0px;
+}
+
+footer li {
+    float: left;
+    font-weight: bold;
+    /* margin: auto; */
+    padding: 0px 10px 0px 10px;
+    /* text-align: center; */
 }

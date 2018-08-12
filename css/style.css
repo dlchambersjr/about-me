@@ -14,55 +14,76 @@ header {
     border: 1px;
     border-style: solid;
     border-radius: 25px;
-    padding-right: 150px;
-    background-color: #ff9600bf;
-    text-align: center;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);    background-color: #ff9600bf;
+    
     
 }
 
-img {
-    position: absolute;
-    left:900px;
-    top:40px;
+#headShot {
     height: 150px;
     border-radius: 10px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
-
+    float: right;
+    position: relative;
+    top: -10px;
+    left: -50px;
 }
 
-
-
 header h1 {
-        font-size: 60px; 
-        padding: 10px;
+    font-size: 60px; 
+    padding: 10px;
+    text-align: center;
     }
 
 header h2 {
     font-size: 30px; 
     font-style: italic;
     padding: 10px;
+    text-align: center;
+}
+
+Section {
+    margin: 50px;
+    border: 1px;
+    border-style:solid;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+    padding: 20px;
+    background-color: #ffffffc4;
 }
 
 section h1 {
-    Margin-top:10px;
-    font-size:50x;
-    font-style:bold;
+    Margin-top: 25px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+section h1:first-child {
+    Margin-top: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+section p {
+    margin: 10px;
+    line-height: 1.2;
 }
 
 ul {
+    margin: 10px 10px 10px 25px;
     list-style: outside;
-    margin: 25px;
 }
 
+li {
+    line-height: 1.2;
+    padding-bottom: 10px;
+}
+
+ul li::first-line {
+    font-weight: bold;
+    Color:rgb(18, 10, 92);
+}
 
 ol {
+    margin: 10px 10px 10px 25px;
     list-style: decimal;
-    margin-left: 50px;
-    Margin-top:10px;
-}
-
-ol:first-child {
-  list-style: none;
-  font-style: bold;
-  margin-left:100px;
 }

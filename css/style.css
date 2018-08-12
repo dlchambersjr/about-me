@@ -3,12 +3,15 @@
    } */
 
 html {
-    background-color: slategray;
+    background-image: url("/img/about-me-bkg.jpg");
+    background-repeat: no-repeat, repeat;
+    background-color: #0898d1;
 }
 
 body {
+    background-image: url('img/about-me-bkg.jpg');
     width: 960px;
-    background-color: white;
+    
     margin:auto;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

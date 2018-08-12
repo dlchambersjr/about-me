@@ -20,17 +20,14 @@ header {
     
 }
 
-img {
+header img {
     position: absolute;
     left:900px;
     top:40px;
     height: 150px;
     border-radius: 10px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
-
 }
-
-
 
 header h1 {
         font-size: 60px; 
@@ -43,15 +40,34 @@ header h2 {
     padding: 10px;
 }
 
+Section {
+    margin: 50px;
+    border: 1px;
+    border-style:solid;
+    border-radius: 25px;
+    padding: 20px;
+    background-color: #ffffff80;
+}
+
 section h1 {
-    Margin-top:10px;
-    font-size:50x;
-    font-style:bold;
+    Margin-top: 25px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+section h1:first-child {
+    Margin-top: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+section p {
+    margin: 10px;
+    line-height: 1.2;
 }
 
 ul {
     list-style: outside;
-    margin: 25px;
+    margin: 10px 10px 10px 25px;
 }
 
 

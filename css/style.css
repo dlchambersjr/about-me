@@ -1,45 +1,46 @@
-/* * {
-    
-   } */
-
 html {
-    background-image: url("/img/about-me-bkg.jpg");
-    background-repeat: no-repeat, repeat;
-    background-color: #0898d1;
+    background-image: url('../img/about-me-bkg.png');
+    background-color: #92bec9;
 }
 
 body {
-    background-image: url('img/about-me-bkg.jpg');
-    width: 960px;
-    
+    width: 1000px; 
     margin:auto;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-img {
-    height: 200px;
-    float:right;
+header {
+    margin-top: 50px;
+    border: 1px;
+    border-style: solid;
+    border-radius: 25px;
+    padding-right: 150px;
+    background-color: #ff9600bf;
+    text-align: center;
+    
 }
 
-header {
-    border: 3px;
-    border-style: double;
-    background-color: rgb(10, 190, 190);
-    margin:100px 0px 20px 0px;
-    padding-top: 10px;
-    
-    
-   
+img {
+    position: absolute;
+    left:900px;
+    top:40px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+
 }
+
+
 
 header h1 {
         font-size: 60px; 
-        font-style: bold;
+        padding: 10px;
     }
 
 header h2 {
     font-size: 30px; 
     font-style: italic;
+    padding: 10px;
 }
 
 section h1 {

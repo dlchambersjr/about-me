@@ -1,80 +1,71 @@
 'use strict';
 
-// Get the user's name
-var userName = prompt('Hi there, what is your name?');
+// Define Question Variables and Multi-Dimensional Array
 
-console.log('User was asked their name and they responded: ' + userName);
+var question = 1, questionAnswer = 2, correctResponse = 3, wrongResponse = 4,
+  questionArray = [
+    [1,
+      'Do I have two dogs, a cat, and a pet fish named "Gas Station?"',
+      false,
+      'You got it right! I only have two dogs now.  Their names are Mia and Henderson.  They are sibling Black Lab - Golden Retrievers.',
+      'I\'m sorry, that\'s incorrect... I used to have all of those animals, but now I have just two dogs.'],
+    [2,
+      'Did I once live in the country of Turkey',
+      true,
+      'You\'re so smart! I lived in the country of Turkey when I was in the second and third grade.  It\'s one of my favorite memories.',
+      'Bummer, you missed that one.  I did live in Turkey when I was in the second and third grade.  It was one of my favorite places.  Better luck on the next question.'],
+    [3,
+      'Have I been married for thirty years?',
+      true,
+      'Nailed it! I married my amazing wife, Lisa, when I was 18 and we just celebrated our 30th anniversary last April.',
+      'You missed that one. I have been married for 30 years, but it feels like I got married yesterday.'],
+    [4,
+      'Do I have four children?',
+      false,
+      'Can\'t fool you, can I? I have three children, but they do not live at home anymore.  They are all "Adulting" on their own now.',
+      'Oops, not quite... I only have three children.  They are all grown-up and living out of the house.'],
+    [5,
+      'Did I spend Christmas 2016 in China?',
+      true,
+      'Wow!  Great answer! I took my wife and daughter to China for three weeks in 2016.  I can\'t wait to go back!',
+      'Keep trying. I did go to China for Chirstmas in 2016.  I even got to walk on the Great Wall!']
+  ];
 
-// Ask them five questions about myself - set the correct question counter to 0
-var correctQuestions = 0;
+// Define Guessing Game Functions
 
-alert('Hello ' + userName + ', thank you for visiting my "About Me" page. Before you see the page, I\'m going to ask you some questions to see how much you know about me already. These are all yes/no questions, so feel free to answer with y/n or yes/no.');
-
-
-// Define Question Functions
-
-function questionOne() {
-  var answerOne = prompt('Question #1, ' + userName + ': Do I have two dogs, a cat, and a pet fish named "Gas Station?"').toLowerCase();
-
-  if (answerOne === 'n' || answerOne === 'no') {
-    alert('You got it right, ' + userName +'!  I only have two dogs now.  Their names are Mia and Henderson.  They are sibling Black Lab - Golden Retrievers');
-    correctQuestions ++;
-    console.log('user was asked about my pets and respnded with ' + answerOne + '. They currently have ' + correctQuestions + 'questions correct.');
-  } else {
-    alert('I\'m sorry, ' + userName + '. I used to have all of those animals, but now I have just two dogs.');
-    console.log('user was asked about my pets and responded with ' + answerOne + '. They currently have ' + correctQuestions + ' questions correct.');
+// Validate yes/no/y/n
+function validateYesNo(userInput) {
+  var answerOK = ['yes', 'no', 'y', 'n'];
+  console.log('the user input=',userInput);
+  while (answerOK.indexOf(userInput) === -1) {
+    userInput = prompt(userName + ', please enter only "yes", "no", "y", or "n".').toLowerCase();
+    console.log('The user reentered: ', userInput);
   }
+  if (userInput === 'y' || userInput === 'yes') {
+    userInput = true;
+  } else {
+    userInput = false;
+  }
+  return userInput;
 }
 
-function questionTwo() {
-  var answerTwo = prompt('Question #2, ' + userName + ': Did I once live in the country of Turkey').toLowerCase();
+function firstFiveQuestions() {
+  var questionNum = 0;
 
-  if (answerTwo === 'y' || answerTwo === 'yes') {
-    alert('You\'re so smart, ' + userName + '! I lived in the country of Turkey when I was in the second and third grade.  It\'s one of my favorite memories.');
-    correctQuestions ++;
-    console.log('the user was asked about living in Turkey and they answered ' + answerTwo + '. They now have ' + correctQuestions + ' correct');
-  } else {
-    alert('Bummer, ' + userName + '. You missed that one.  I did live in Turkey when I was in the second and third grade.  It was one of my favorite places.  Better luck on the next question.');
-    console.log('the user was asked about living in Turkey and they answered ' + answerTwo + '. They now have ' + correctQuestions + ' questions correct');
-  }
-}
-
-function questionThree(){
-  var answerThree = prompt('OK, ' + userName +'... here is Question #3: Have I been married for thirty years?').toLowerCase();
-
-  if (answerThree === 'y' || answerThree === 'yes') {
-    alert('Nailed it, ' + userName + '! I married my amazing wife, Lisa, when I was 18 and we just celebrated our 30th anniversary last April.');
-    correctQuestions ++;
-    console.log('the user was asked about how long I have been married and answered ' + answerThree + '. They now have ' + correctQuestions + ' correct');
-  } else {
-    alert('You missed that one, ' + userName + '. I have been married for 30 years, but it feels like I got married yesterday.');
-    console.log('the user was asked about how long I have been married and answered ' + answerThree + '. They now have ' + correctQuestions + ' questions correct');
-  }
-}
-
-function questionFour() {
-  var answerFour = prompt('Almost done.  Here is Question #4, ' + userName + ': Do I have four children?').toLowerCase();
-
-  if (answerFour === 'n' || answerFour === 'no') {
-    alert('Can\'t fool you, ' + userName +'!  You got it correct!  I have three children, but they do not live at home anymore.  They are all "Adulting" on their own now.');
-    correctQuestions ++;
-    console.log('user was asked about my children and respnded with ' + answerFour + '. They currently have ' + correctQuestions + 'questions correct.');
-  } else {
-    alert('Oops, you missed it ' + userName + '... I only have three children.  They are all grown-up and living out of the house.');
-    console.log('user was asked about my children and respnded with ' + answerFour + '. They currently have ' + correctQuestions + ' questions correct.');
-  }
-}
-
-function questionFive() {
-  var answerFive = prompt('Last one!  Question #5: Did I spend Christmas 2016 in China?').toLowerCase();
-
-  if (answerFive === 'y' || answerFive === 'yes') {
-    alert('Wow!  Great answer, ' + userName + '! I took my wife and daughter to China for three weeks in 2016.  I can\'t wait to go back!');
-    correctQuestions ++;
-    console.log('the user was asked about My trip to China and answered ' + answerFive + '. They now have ' + correctQuestions + ' correct');
-  } else {
-    alert('You missed that one, ' + userName + '. I did go to China for Chirstmas in 2016.  I even got to walk on the Great Wall!');
-    console.log('the user was asked about My trip to China and answered ' + answerFive + '. They now have ' + correctQuestions + ' questions correct');
+  // Lab-02 Five Questions
+  while (questionNum +1 < 6) {
+    var answer = prompt('Question #' + questionArray[questionNum][0] + '\n\n' + questionArray[questionNum][question]).toLowerCase();
+    console.log('user eneterd ,', answer);
+    answer = validateYesNo(answer);
+    console.log('validate is returning ',answer);
+    console.log('correct answer is ', questionArray[questionNum][questionAnswer]);
+    if (answer === questionArray[questionNum][questionAnswer]) {
+      alert(questionArray[questionNum][correctResponse]);
+      correctQuestions++;
+    } else {
+      alert(questionArray[questionNum][wrongResponse]);
+    }
+    questionNum++;
   }
 }
 
@@ -140,30 +131,27 @@ function questionSeven() {
   }
 }
 
-// Question #1
-questionOne();
+// User experience begins here
+// Get the user's name
+var userName = prompt('Thanks for stopping by! My name is David.\n\nWhat is your name?');
 
-// Question #2
-questionTwo();
+console.log('User was asked their name and they responded: ' + userName);
 
-// Question #3
-questionThree();
+// Play the guessing game
+// Reset the correct question counter to 0
+var correctQuestions = 0;
 
-// Question #4
-questionFour();
+alert('Now that you\'ve seen the page, ' +userName + ', I\'m going to ask you some questions to see how much you learned.\n\nThese are all yes/no questions, so feel free to answer with y/n or yes/no.');
 
-// Questions #5
-questionFive();
+// Ask the first five questions
+firstFiveQuestions();
 
 // Lab-03 WORK:
-
 // Question #6
 questionSix();
 
 // Question #7
-
-// define my array of fruits, the fruit guess, and set the number of attmepts
 questionSeven();
 
 // Show the user the results of the quiz
-alert('Thanks for taking the quiz, ' + userName + '!  You got ' + correctQuestions + ' out of 7 questions correct. Do you want to play another game?');
+alert('Thanks for taking the quiz, ' + userName + '!  You got ' + correctQuestions + ' out of 7 questions correct. Let\'s play again soon?');

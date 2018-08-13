@@ -84,6 +84,7 @@ ul li::first-line {
 ol {
     margin: 10px 10px 10px 25px;
     list-style: decimal;
+    padding-left: 10px;
 }
 footer {
     margin-bottom: 25px;

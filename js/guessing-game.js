@@ -30,7 +30,7 @@ var question = 1, questionAnswer = 2, correctResponse = 3, wrongResponse = 4,
       'Wow!  Great answer! I took my wife and daughter to China for three weeks in 2016.  I can\'t wait to go back!',
       'Keep trying. I did go to China for Chirstmas in 2016.  I even got to walk on the Great Wall!'],
     [6,
-      'Guess a number between 1 and ',
+      'Guess a number between 1 and 10.',
       0,
       'Good Job!  You got it right!  The answer was, in fact, ',
       'Im sorry, you ran out of guesses for this one.  The correct answer is '],
@@ -38,25 +38,40 @@ var question = 1, questionAnswer = 2, correctResponse = 3, wrongResponse = 4,
       'Can you guess a fruit that I have in my kitchen?',
       ['dates','cherries','oranges','bananas','mangos'],
       'You got one!',
-      'I\'m sorry, you\'re out of guesses...'']
+      'I\'m sorry, you\'re out of guesses...']
   ];
 
 // Define Guessing Game Functions
 
-// Validate yes/no/y/n
-function validateYesNo(userInput) {
-  var answerOK = ['yes', 'no', 'y', 'n'];
-  console.log('the user input=',userInput);
-  while (answerOK.indexOf(userInput) === -1) {
-    userInput = prompt(userName + ', please enter only "yes", "no", "y", or "n".').toLowerCase();
-    console.log('The user reentered: ', userInput);
+function validateAnswer(userInput,num) {
+  // Validate Questions 1 - 5
+  console.log ('question number : ', num + 1);
+  if (num + 1 < 6) {
+    var answerOK = ['yes', 'no', 'y', 'n'];
+    console.log('the user input=',userInput);
+    while (answerOK.indexOf(userInput) === -1) {
+      userInput = prompt(userName + ', please enter only "yes", "no", "y", or "n".').toLowerCase();
+      console.log('The user reentered: ', userInput);
+    }
+    if (userInput === 'y' || userInput === 'yes') {
+      userInput = true;
+    } else {
+      userInput = false;
+      return userInput;
+    }
+
+  // Validate Question 6
+  } else if (num + 1 < 7) {
+    console.log('question 6 answer: ',userInput);
+    while (isNaN(userInput)) {
+      userInput = parseFloat(prompt('Please only enter a number. Try again!'));
+    }
+    return userInput;
+
+  // Validate Question 7
+  } else if (num + 1 < 8) {
+    return userInput;
   }
-  if (userInput === 'y' || userInput === 'yes') {
-    userInput = true;
-  } else {
-    userInput = false;
-  }
-  return userInput;
 }
 
 function guessingGame() {
@@ -66,7 +81,7 @@ function guessingGame() {
   while (questionNum +1 < 6) {
     var answer = prompt('Question #' + questionArray[questionNum][0] + '\n\n' + questionArray[questionNum][question]).toLowerCase();
     console.log('user eneterd ,', answer);
-    answer = validateYesNo(answer);
+    answer = validateAnswer(answer,questionNum);
     console.log('validate is returning ',answer);
     console.log('correct answer is ', questionArray[questionNum][questionAnswer]);
     if (answer === questionArray[questionNum][questionAnswer]) {
@@ -79,44 +94,59 @@ function guessingGame() {
   }
 
   // Lab-03 Question 6
-  questionsvar randomNum = Math.floor(Math.random() * 10) + 1;
+  var guess = 0;
+  questionArray[questionNum][questionAnswer] = Math.floor(Math.random() * 10) + 1;
 
-// Lab-04 Question 7
-}
+  alert(userName + ', let\'s play a guessing game now.\n\nYou get four chances to guess a numbe between 1 and 10. Click OK when you are ready to begin.');
 
-
-function questionSix() {
-  alert(userName + ', let\'s play a guessing game.  Click OK when you are ready.');
-
-  var guess = 1, actualMiles = 280;
-
-  while (guess <= 4) {
-    var miles = parseFloat(prompt('GUESS #' + guess + '\n\n' + userName + ' can you tell me how the number of miles I drove my car last week?'));
-    console.log ('miles is', miles);
-    while (isNaN(miles)) {
-      miles = parseFloat(prompt(userName + ', you need to enter a number. Please try GUESS #' + guess + ' again. \n\nCan you tell me the number of miles I drove my car last week?'));
-    }
-    console.log ('guess #', guess);
-    if (miles === actualMiles) {
-      alert('Congratulations ' + userName + '! \n\nYou got it right!');
-      console.log ('user guessed ' + miles + 'break the cycle... guess is now ' + guess);
+  while (guess !== 0) {
+    answer = prompt('Question #' + questionArray[questionNum][0] + '\n\n' + questionArray[questionNum][question]).toLowerCase();
+    answer = parseFloat(answer);
+    answer = validateAnswer(answer,questionArray[questionNum][0]);
+    if (answer === questionArray[questionNum][questionAnswer]) {
+      alert(questionArray[questionNum][correctResponse]);
       correctQuestions++;
-      guess = 5;
+    } else {
+      alert(questionArray[questionNum][wrongResponse]);
+      guess--;
     }
-    console.log('guess before missed = ' + guess);
-    if (miles < actualMiles) {
-      alert('I\'m sorry, ' + userName + ', your guess is too low.  Try again, please.');
-      console.log('the user guessed ' + miles + ' and guess is at ' + guess);
-    } else if (guess <= 4 && miles > actualMiles) {
-      alert('I\'m sorry, ' + userName + ', your guess was to high.  Please try again.');
-      console.log('the user guessed ' + miles);
-    }
-    if (guess === 4) {
-      alert('I\'m sorry, ' + userName + ', unfortunately, that was your last guess.  The correct answer was ' + actualMiles +' miles');
-    }
-    guess ++;
+    questionNum++;
+
+    // Lab-04 Question 7
   }
 }
+// function questionSix() {
+//   alert(userName + ', let\'s play a guessing game.  Click OK when you are ready.');
+
+//   var guess = 1, actualMiles = 280;
+
+//   while (guess <= 4) {
+//     var miles = parseFloat(prompt('GUESS #' + guess + '\n\n' + userName + ' can you tell me how the number of miles I drove my car last week?'));
+//     console.log ('miles is', miles);
+//     while (isNaN(miles)) {
+//       miles = parseFloat(prompt(userName + ', you need to enter a number. Please try GUESS #' + guess + ' again. \n\nCan you tell me the number of miles I drove my car last week?'));
+//     }
+//     console.log ('guess #', guess);
+//     if (miles === actualMiles) {
+//       alert('Congratulations ' + userName + '! \n\nYou got it right!');
+//       console.log ('user guessed ' + miles + 'break the cycle... guess is now ' + guess);
+//       correctQuestions++;
+//       guess = 5;
+//     }
+//     console.log('guess before missed = ' + guess);
+//     if (miles < actualMiles) {
+//       alert('I\'m sorry, ' + userName + ', your guess is too low.  Try again, please.');
+//       console.log('the user guessed ' + miles + ' and guess is at ' + guess);
+//     } else if (guess <= 4 && miles > actualMiles) {
+//       alert('I\'m sorry, ' + userName + ', your guess was to high.  Please try again.');
+//       console.log('the user guessed ' + miles);
+//     }
+//     if (guess === 4) {
+//       alert('I\'m sorry, ' + userName + ', unfortunately, that was your last guess.  The correct answer was ' + actualMiles +' miles');
+//     }
+//     guess ++;
+//   }
+// }
 
 // function questionSeven() {
 //   var fruitList = ['dates','cherries','oranges','bananas','mangos'], fruitGuess, attempt = 6;
@@ -159,10 +189,10 @@ console.log('User was asked their name and they responded: ' + userName);
 // Ask them five questions about myself - set the correct question counter to 0
 var correctQuestions = 0;
 
-alert('Now that you\'ve seen the page, ' +userName + ', I\'m going to ask you some questions to see how much you learned.\n\nThese are all yes/no questions, so feel free to answer with y/n or yes/no.');
+alert('Now that you\'ve seen the page, ' + userName + ', I\'m going to ask you some questions to see how much you learned.\n\nThese are all yes/no questions, so feel free to answer with y/n or yes/no.');
 
 // Ask the first five questions
-guessingGame();
+guessingGame(correctQuestions);
 
 // // Lab-03 WORK:
 
@@ -175,4 +205,4 @@ guessingGame();
 // questionSeven();
 
 // Show the user the results of the quiz
-alert('Thanks for taking the quiz, ' + userName + '!  You got ' + correctQuestions + ' out of 7 questions correct. Do you want to play another game?');
+//   alert('Thanks for taking the quiz, ' + userName + '!  You got ' + correctQuestions + ' out of 7 questions correct.')
